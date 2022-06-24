@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello Spring Boot</title>
+    <link rel="stylesheet" th:href="@{/css/hello.css}" />
+  </head>
+  <body>
+    <h1>Hello Spring Boot!</h1>
+
+    <div class="balloon1">
+      <p th:text="${greeting}"></p>
+      <p>[[${name}]]さん、Spring Bootへようこそにゃ！</p>
+    </div>
+
+    <div>
+      <img th:src="@{/img/cat.jpg}" />
+    </div>
+
+    <div>
+      <form th:action="@{/{n}/hello/add(n=${name})}" method="post">
+        <label for="text">あいさつを追加</label>
+        <input type="text" name="aisatsu" id="aisatsu" />
+        <input type="submit" value="追加" />
+      </form>
+    </div>
+  </body>
+</html>
